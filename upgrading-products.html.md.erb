@@ -39,7 +39,7 @@ Refer to the [Product Version Matrix](../../compatibility-matrix.pdf) before upg
 <p class="note"><strong>Note</strong>: Before you upgrade to Ops Manager 1.7.x, you must first upgrade PCF Elastic Runtime to version 1.6.9 or higher. </p>
 
 <p class="note warning">
-<strong>WARNING: </strong> Pivotal Cloud Foundry 1.7 does not support PostgreSQL databases. During an upgrade from PCF version 1.6 to 1.7, data from the UAA and Cloud Controller Postgres databases migrate to MySQL. This temporarily disables login through the UAA and SSO and may cause data loss if you have not prepared your databases. If your installation uses Postgres, see <a href="#aboutpostgres">About Postgres Databases During PCF Upgrade</a>.</p>
+<strong>WARNING: </strong> Pivotal Cloud Foundry 1.7 does not support PostgreSQL databases. During an upgrade from PCF version 1.6 to 1.7, data from the UAA and Cloud Controller Postgres databases automatically migrate to MySQL. This temporarily disables login through the UAA and SSO and may cause data loss if you have not prepared your databases. If your installation uses Postgres, see <a href="#aboutpostgres">About Postgres Databases During PCF Upgrade</a>.</p>
 
 ### Install using the Pivotal Operations Manager
 
