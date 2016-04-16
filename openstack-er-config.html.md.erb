@@ -25,9 +25,20 @@ Dashboard.
 1. Click the Pivotal Network link on the left to add Elastic Runtime to Ops
 Manager. For more information, refer to the [Adding and Deleting Products](./add-delete.html) topic.
 
-     <%= image_tag("openstack/er-tile.png") %>
+     <%= image_tag("er-tile.png") %>
 
-## <a id='er-domain-config'></a>Step 2: Configure Domains ##
+## <a id='er-assign-azs'></a>Step 2: Assign Availability Zones and Networks ##
+
+1. Select **Assign AZs and Networks**. These are the Availability Zones that you [create](../customizing/openstack-setup.html#launch-om-vm) when configuring Ops Manager Director.
+    <%= image_tag("cloudform/er-az.png") %>
+
+1. Select an Availability Zone under **Place singleton jobs**. Ops Manager runs any job with a single instance in this Availability Zone. 
+
+1. Select one or more Availability Zones under **Balance other jobs**. Ops Manager balances instances of jobs with more than one instance across the Availability Zones that you specify.
+
+1. From the **Network** drop-down box, choose the network on which you want to run Elastic Runtime.
+
+## <a id='er-domain-config'></a>Step 3: Configure Domains ##
 
 1. Select **Domains**.
 
@@ -45,13 +56,13 @@ Manager. For more information, refer to the [Adding and Deleting Products](./add
 
 1. Click **Save**.
 
-## <a id="networking"></a>Step 3: Configure Networking ##
-
-<%= partial 'networking-openstack' %>
-
 ## <a id='application-containers-config'></a>Step 4: Configure Application Containers ##
 
 <%= partial 'application_container_config' %>
+
+## <a id="networking"></a>Step 3: Configure Networking ##
+
+<%= partial 'networking-openstack' %>
 
 ## <a id='er-appdevctrl-config'></a>Step 5: Configure Application Developer Controls ##
 
