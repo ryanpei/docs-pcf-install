@@ -1,0 +1,119 @@
+---
+title: Configuring SSO for Ops Manager
+owner: Ops Manager
+---
+
+This is an introductory paragraph where you talk about what this topic intends to do. For example, here is some text: This topic describes setting up Single Sign On for Pivotal Cloud Foundry&reg;. using SAML 2.0. This allows users to use their existing enterpise credentials to access PCF as opposed to creating and maintaining separate accounts.
+
+Single Sign-On can be enabled at three levels on Pivotal Cloud Foundry: Ops Manager & Bosh, Elastic Runtime & Application running on ERT.
+
+## <a id="configuring-sso"></a>Configuring SSO for Ops Manager
+
+<p class="note"><strong>Note</strong>: This is a class for notes if you need it.</p>
+
+Single Sign-on can be enabled for Ops Manager using an external SAML 2.0 compliant Identity Provider.
+
+1. Navigate to the fully qualified domain of your Ops Manager in a web browser.
+
+1. The first time you start Ops Manager, you must choose one of the following:
+    * <strong>[Use an Identity Provider](#idp)</strong>: If you use an Identity Provider, an external identity server maintains your user database.
+    * <strong>[Internal Authentication](#internal)</strong>: If you use Internal Authentication, PCF maintains your user database.
+
+## <a id='idp'></a>Use an Identity Provider ##
+
+1. If you choose to proceed to the **Use an Identity Provider** page, you must complete the following steps:
+    * Retrieve the metadata URL from your Identity Provider, and copy and paste it into the **Use an Identity Provider** area.
+    * Create a passphrase. Ops Manager encrypts data using the passphrase that you provide.
+    * Read the **End User License Agreement**, and select the checkbox to accept the terms.
+    * Click **Setup Authentication**.
+
+    <%= image_tag("meta-url.png") %>
+
+1.  Enter your username and password when your Identity Provider login page appears. Click **Login**.
+
+#<a id="configure-saml"></a>Configure SAML Service Provider  #
+
+**SAML Service Provider Properties for Ops Manager UAA** 
+
+* Service Provider Entity ID: opsman-login
+* ACS URL :  https://{OpsManager-IP}/uaa/saml/SSO/alias/opsman-login
+* Binding : HTTP Post
+* SLO URL: https://{OpsManager-IP}/uaa/saml/SingleLogout/alias/opsman-login
+* Binding : HTTP Redirect
+* Name ID : Email Address 
+
+
+**SAML Service Provider Properties for Bosh UAA** 
+
+* Service Provider Entity ID: bosh-uaa
+* ACS URL :  https://{Bosh-IP}:8443/saml/SSO/alias/bosh-uaa
+* Binding : HTTP Post
+* SLO URL: https://{Bosh-IP}:8443/saml/SSO/alias/bosh-uaa
+* Binding : HTTP Redirect
+* Name ID : Email Address 
+
+## <a id='internal'></a>Internal Authentication ##
+
+1. When redirected to the **Internal Authentication** page, you must complete the following steps:
+    * Enter a **Username**, **Password**, and **Password confirmation** to create an Admin user.
+    * Enter a **Decryption passphrase** and the **Decryption passphrase confirmation**. This passphrase encrypts the Ops Manager datastore, and is not recoverable.
+    * Read the **End User License Agreement**, and select the checkbox to accept the terms.
+
+    <%= image_tag("om-login.png") %>
+
+
+##<a id="ca-siteminder"></a>CA SiteMinder aka CA SSO IDP Configuration ##
+
+###<a id="remote-service-ops"></a>Step 1: Create a Remote Service Provider Entity for Ops Manager Manually ###
+
+1. I am a step - fill me in with stuffs. This is how you make me **bold**. This is an example of how you include an image tag.
+
+    <%= image_tag("./images/upgrading/welcome.png") %>
+
+1. Fill me in. 
+
+1. Etc.
+
+###<a id="remote-service-bosh"></a>Step 2 : Create a Remote Service Provider Entity for BOSH manually ###
+
+1. I am a step - fill me in with stuffs. This is how you make me **bold**. This is an example of how you include an image tag.
+
+    <%= image_tag("./images/upgrading/welcome.png") %>
+
+1. Fill me in. 
+
+1. Etc.
+
+
+###<a id="local-siteminder-identity"></a>Step 3 : Create a local SiteMinder Identity Provider ###
+
+1. I am a step - fill me in with stuffs. This is how you make me **bold**. This is an example of how you include an image tag.
+
+    <%= image_tag("./images/upgrading/welcome.png") %>
+
+1. Fill me in. 
+
+1. Etc.
+
+
+###<a id="partnership-siteminder-ops"></a>Step 4 : Create the Partnership with SiteMinder as IDP and Ops Manager as SP ###
+
+1. I am a step - fill me in with stuffs. This is how you make me **bold**. This is an example of how you include an image tag.
+
+    <%= image_tag("./images/upgrading/welcome.png") %>
+
+1. Fill me in. 
+
+1. Etc.
+
+
+###<a id="partnership-siteminder-bosh"></a>Step 5 : Create the Partnership with SiteMinder as IDP and BOSH as SP ###
+
+1. I am a step - fill me in with stuffs. This is how you make me **bold**. This is an example of how you include an image tag.
+
+    <%= image_tag("./images/upgrading/welcome.png") %>
+
+1. Fill me in. 
+
+1. Etc.
+
